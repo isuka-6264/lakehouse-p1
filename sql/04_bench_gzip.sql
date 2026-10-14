@@ -1,0 +1,10 @@
+SET SESSION bronze.compression_codec = 'GZIP';
+CREATE SCHEMA IF NOT EXISTS bronze.bench_gzip;
+DROP TABLE IF EXISTS bronze.bench_gzip.nation;
+DROP TABLE IF EXISTS bronze.bench_gzip.customer;
+DROP TABLE IF EXISTS bronze.bench_gzip.orders;
+DROP TABLE IF EXISTS bronze.bench_gzip.lineitem;
+CREATE TABLE bronze.bench_gzip.nation   WITH (format = 'PARQUET') AS SELECT * FROM tpch.sf1.nation;
+CREATE TABLE bronze.bench_gzip.customer WITH (format = 'PARQUET') AS SELECT * FROM tpch.sf1.customer;
+CREATE TABLE bronze.bench_gzip.orders   WITH (format = 'PARQUET') AS SELECT * FROM tpch.sf1.orders;
+CREATE TABLE bronze.bench_gzip.lineitem WITH (format = 'PARQUET') AS SELECT * FROM tpch.sf1.lineitem;

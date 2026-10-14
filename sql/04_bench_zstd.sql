@@ -1,0 +1,10 @@
+SET SESSION bronze.compression_codec = 'ZSTD';
+CREATE SCHEMA IF NOT EXISTS bronze.bench_zstd;
+DROP TABLE IF EXISTS bronze.bench_zstd.nation;
+DROP TABLE IF EXISTS bronze.bench_zstd.customer;
+DROP TABLE IF EXISTS bronze.bench_zstd.orders;
+DROP TABLE IF EXISTS bronze.bench_zstd.lineitem;
+CREATE TABLE bronze.bench_zstd.nation   WITH (format = 'PARQUET') AS SELECT * FROM tpch.sf1.nation;
+CREATE TABLE bronze.bench_zstd.customer WITH (format = 'PARQUET') AS SELECT * FROM tpch.sf1.customer;
+CREATE TABLE bronze.bench_zstd.orders   WITH (format = 'PARQUET') AS SELECT * FROM tpch.sf1.orders;
+CREATE TABLE bronze.bench_zstd.lineitem WITH (format = 'PARQUET') AS SELECT * FROM tpch.sf1.lineitem;

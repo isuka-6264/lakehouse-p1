@@ -1,0 +1,10 @@
+SET SESSION bronze.compression_codec = 'NONE';
+CREATE SCHEMA IF NOT EXISTS bronze.bench_none;
+DROP TABLE IF EXISTS bronze.bench_none.nation;
+DROP TABLE IF EXISTS bronze.bench_none.customer;
+DROP TABLE IF EXISTS bronze.bench_none.orders;
+DROP TABLE IF EXISTS bronze.bench_none.lineitem;
+CREATE TABLE bronze.bench_none.nation   WITH (format = 'PARQUET') AS SELECT * FROM tpch.sf1.nation;
+CREATE TABLE bronze.bench_none.customer WITH (format = 'PARQUET') AS SELECT * FROM tpch.sf1.customer;
+CREATE TABLE bronze.bench_none.orders   WITH (format = 'PARQUET') AS SELECT * FROM tpch.sf1.orders;
+CREATE TABLE bronze.bench_none.lineitem WITH (format = 'PARQUET') AS SELECT * FROM tpch.sf1.lineitem;

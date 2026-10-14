@@ -1,0 +1,10 @@
+SET SESSION bronze.compression_codec = 'SNAPPY';
+CREATE SCHEMA IF NOT EXISTS bronze.bench_snappy;
+DROP TABLE IF EXISTS bronze.bench_snappy.nation;
+DROP TABLE IF EXISTS bronze.bench_snappy.customer;
+DROP TABLE IF EXISTS bronze.bench_snappy.orders;
+DROP TABLE IF EXISTS bronze.bench_snappy.lineitem;
+CREATE TABLE bronze.bench_snappy.nation   WITH (format = 'PARQUET') AS SELECT * FROM tpch.sf1.nation;
+CREATE TABLE bronze.bench_snappy.customer WITH (format = 'PARQUET') AS SELECT * FROM tpch.sf1.customer;
+CREATE TABLE bronze.bench_snappy.orders   WITH (format = 'PARQUET') AS SELECT * FROM tpch.sf1.orders;
+CREATE TABLE bronze.bench_snappy.lineitem WITH (format = 'PARQUET') AS SELECT * FROM tpch.sf1.lineitem;

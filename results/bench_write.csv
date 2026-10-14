@@ -1,0 +1,5 @@
+"codec","write_s"
+"NONE","27.3"
+"SNAPPY","16.8"
+"GZIP","25.9"
+"ZSTD","15"
